@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FashionBeast|jeans</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans relative">
+
+ <nav class="bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/831/831347.png" alt="logo" class="w-8 h-8">
+        FashionBeast
+      </a>
+      <div class="flex space-x-4">
+        <a href="FashionBeast.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Home
+        </a>
+        <a href="about.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          About Us
+        </a>
+        <a href="service.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Services
+        </a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="text-center py-10">
+    <h2 class="text-4xl font-bold mb-2 text-indigo-400">Denim That Defines You 👖</h2>
+    <p class="text-gray-400">Perfect fit. Perfect feel. Built for your every move.</p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 gap-10" id="product-list"></section>
+
+  <div id="cart-toast" class="fixed bottom-5 right-5 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg hidden">
+    ✅ Added to Cart!
+  </div>
+
+  <script>
+    const products = [
+      {name: "Slim Fit Blue Jeans", price: 1299, img: "https://m.media-amazon.com/images/I/81p4cgJLGqL._SY679_.jpg"},
+      {name: "Black Stretch Jeans", price: 1399, img: "https://m.media-amazon.com/images/I/41pBXBkEfUL._SY500_.jpg"},
+      {name: "Distressed Denim Jeans", price: 1499, img: "https://m.media-amazon.com/images/I/617+zBC43lL._SX679_.jpg"},
+      {name: "Grey Skinny Fit Jeans", price: 1299, img: "https://m.media-amazon.com/images/I/51pl7hZNaBL._SY550_.jpg"},
+      {name: "Regular Fit Blue Jeans", price: 1099, img: "https://m.media-amazon.com/images/I/616YrCAs03L._SY550_.jpg"},
+      {name: "Khaki Chinos Pants", price: 999, img: "https://m.media-amazon.com/images/I/51wTTseQTIL._SX522_.jpg"},
+      {name: "Olive Cargo Pants –", price: 1199, img: "https://m.media-amazon.com/images/I/61sV0o+mjYL._SY679_.jpg"},
+      {name: "White Slim Fit Jeans", price: 1299, img: "https://m.media-amazon.com/images/I/515olk-XS-L._SY550_.jpg"},
+      {name: "Tapered Fit Cotton Pants", price: 1099, img: "https://m.media-amazon.com/images/I/71IDYHmsZNL._SY679_.jpg"},
+      {name: "Ripped Street Style Jeans", price: 1499, img: "https://m.media-amazon.com/images/I/51xt0T9EXfL._SY550_.jpg"}
+    ];
+
+    const productContainer = document.getElementById("product-list");
+    const cartToast = document.getElementById("cart-toast");
+
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300 w-full max-w-md mx-auto";
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}" class="w-60 h-60 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-1">${p.name}</h3>
+        <p class="text-gray-400 text-sm mb-3">₹${p.price}</p>
+        <div class="flex gap-3 mt-2">
+          <button onclick="addToCart('${p.name}')" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm">Add to Cart</button>
+          <a href="buy.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm">Buy Now</a>
+        </div>`;
+      productContainer.appendChild(card);
+    });
+
+    function addToCart(name) {
+      cartToast.innerText = `🛒 ${name} added to cart!`;
+      cartToast.classList.remove("hidden");
+      setTimeout(() => cartToast.classList.add("hidden"), 2000);
+    }
+  </script>
+  <footer class="bg-gray-900 text-gray-400 py-4 mt-10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>© 2025 <span class="text-blue-400 font-semibold">MyShop</span>. All rights reserved.</p>
+      <p class="mt-1">Designed with ❤️ by <span class="text-blue-400">fashion beast Team</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

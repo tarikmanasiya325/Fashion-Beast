@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FashionBeast | Buy Now</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <nav class="bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/831/831347.png" alt="logo" class="w-8 h-8">
+        FashionBeast
+      </a>
+      <div class="flex space-x-4">
+        <a href="FashionBeast.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Home
+        </a>
+        <a href="about.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          About Us
+        </a>
+        <a href="service.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Services
+        </a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="max-w-4xl mx-auto my-10 bg-gray-800 p-8 rounded-2xl shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-indigo-400 text-center">🛒 Buy Now</h2>
+
+    <form id="buyForm" class="grid md:grid-cols-2 gap-8">
+      <div class="bg-gray-700 p-6 rounded-xl">
+        <h3 class="text-xl font-semibold mb-4 border-b border-gray-600 pb-2">Product Details</h3>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Product Name</label>
+            <input id="product-name" type="text" required placeholder="e.g. product name" class="w-full p-2 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Product Price (₹)</label>
+            <input id="product-price" type="number" required placeholder="e.g. price" class="w-full p-2 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Quantity</label>
+            <input id="product-quantity" type="number" value="1" min="1" required class="w-full p-2 rounded-lg bg-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-4 border-b border-gray-600 pb-2">Customer Details</h3>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Full Name</label>
+            <input id="customer-name" type="text" required placeholder="e.g. John Doe" class="w-full p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Email</label>
+            <input id="customer-email" type="email" required placeholder="e.g. john@example.com" class="w-full p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Address</label>
+            <textarea id="customer-address" required rows="3" placeholder="Full delivery address" class="w-full p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm text-gray-300">Payment Method</label>
+            <select id="payment-method" required class="w-full p-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+              <option value="">Select Payment Method</option>
+              <option value="cod">Cash on Delivery</option>
+              <option value="upi">UPI / Google Pay</option>
+              <option value="card">Credit / Debit Card</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <button type="submit" class="w-full mt-6 bg-indigo-500 hover:bg-indigo-600 py-3 rounded-lg font-semibold transition-all duration-200">
+          Confirm & Place Order
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <div id="order-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+    <div class="bg-gray-800 rounded-2xl shadow-lg p-8 text-center max-w-md">
+      <h3 class="text-2xl font-bold text-indigo-400 mb-3">🎉 Order Placed Successfully!</h3>
+      <p class="text-gray-300 mb-6">Thank you for shopping with <span class="font-semibold text-indigo-400">FashionBeast</span>!</p>
+      <p class="text-sm text-gray-400 mb-6">Your order will be delivered soon.</p>
+      <button onclick="closeModal()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-5 py-2 rounded-lg">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("buyForm");
+    const modal = document.getElementById("order-modal");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const productName = document.getElementById("product-name").value;
+      const price = document.getElementById("product-price").value;
+      const qty = document.getElementById("product-quantity").value;
+
+      console.log(`Order placed: ${productName} x${qty} @ ₹${price}`);
+
+      modal.classList.remove("hidden");
+    });
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      window.location.href = "FashionBeast.html";
+    }
+  </script>
+
+</body>
+</html>

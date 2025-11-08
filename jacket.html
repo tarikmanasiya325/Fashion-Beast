@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FashionBeast|jacket</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans relative">
+
+ <nav class="bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/831/831347.png" alt="logo" class="w-8 h-8">
+        FashionBeast
+      </a>
+      <div class="flex space-x-4">
+        <a href="FashionBeast.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Home
+        </a>
+        <a href="about.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          About Us
+        </a>
+        <a href="service.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Services
+        </a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="text-center py-10">
+    <h2 class="text-4xl font-bold mb-2 text-indigo-400">Layer Up in Style ❄️</h2>
+    <p class="text-gray-400">Stay warm, stay stylish — because comfort never looked this cool.</p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 gap-10" id="product-list"></section>
+
+  <div id="cart-toast" class="fixed bottom-5 right-5 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg hidden">
+    ✅ Added to Cart!
+  </div>
+
+  <script>
+    const products = [
+      {name: "Black Leather Jacket", price: 2999, img: "https://m.media-amazon.com/images/I/61fsCUFyixL._SY679_.jpg"},
+      {name: "Blue Denim Jacket", price: 1999, img: "https://m.media-amazon.com/images/I/61Riob8OGYL._SY550_.jpg"},
+      {name: "Bomber Jacket (Olive)", price: 2499, img: "https://m.media-amazon.com/images/I/41asIU8ZiOL._SY300_SX300_QL70_FMwebp_.jpg"},
+      {name: "Grey Hoodie", price: 1299, img: "https://m.media-amazon.com/images/I/61123wypV6L._SY550_.jpg"},
+      {name: "Zip-Up Sports Hoodie", price: 1499, img: "https://m.media-amazon.com/images/I/51OKvAVgxRL._SX522_.jpg"},
+      {name: "Puffer Jacket", price: 2799, img: "https://m.media-amazon.com/images/I/61j2FBMg2LL._SX522_.jpg"},
+      {name: "Varsity Jacket", price: 2299, img: "https://m.media-amazon.com/images/I/417I2EipV5L._SX522_.jpg"},
+      {name: "Sleeveless Jacket", price: 1799, img: "https://m.media-amazon.com/images/I/51WECbdonDL._SY550_.jpg"},
+      {name: "Camouflage Hoodie", price: 1699, img: "https://m.media-amazon.com/images/I/51C-Z6Zg0dL.jpg"},
+      {name: "Red Fleece Hoodie", price: 1199, img: "https://m.media-amazon.com/images/I/317T2xyynML._SX385_.jpg"}
+    ];
+
+    const productContainer = document.getElementById("product-list");
+    const cartToast = document.getElementById("cart-toast");
+
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300 w-full max-w-md mx-auto";
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}" class="w-60 h-60 object-cover rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-1">${p.name}</h3>
+        <p class="text-gray-400 text-sm mb-3">₹${p.price}</p>
+        <div class="flex gap-3 mt-2">
+          <button onclick="addToCart('${p.name}')" class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm">Add to Cart</button>
+          <a href="buy.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm">Buy Now</a>
+        </div>`;
+      productContainer.appendChild(card);
+    });
+
+    function addToCart(name) {
+      cartToast.innerText = `🛒 ${name} added to cart!`;
+      cartToast.classList.remove("hidden");
+      setTimeout(() => cartToast.classList.add("hidden"), 2000);
+    }
+  </script>
+  <footer class="bg-gray-900 text-gray-400 py-4 mt-10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>© 2025 <span class="text-blue-400 font-semibold">MyShop</span>. All rights reserved.</p>
+      <p class="mt-1">Designed with ❤️ by <span class="text-blue-400">fashion beast Team</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

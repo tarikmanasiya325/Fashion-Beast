@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FashionBeast</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 font-sans text-gray-100">
+
+  <nav class="bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors duration-300 flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/831/831347.png" alt="logo" class="w-8 h-8">
+        FashionBeast
+      </a>
+      <div class="flex space-x-4">
+        <a href="FashionBeast.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Home
+        </a>
+        <a href="about.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          About Us
+        </a>
+        <a href="service.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Services
+        </a>
+        <a href="contact.html" class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative bg-gray-900 py-10">
+    <div class="max-w-6xl mx-auto overflow-hidden rounded-2xl shadow-lg">
+      <div id="offerSlider" class="flex transition-transform duration-700 ease-in-out">
+        
+        <div class="min-w-full relative">
+          <img 
+            src="https://thumbs.dreamstime.com/b/men-s-clothes-set-isolated-white-trendy-stylish-look-male-clothing-collection-fashion-outfit-nobody-objects-402581042.jpg"
+            alt="Men's Wear Offer"
+            class="w-full h-[450px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h2 class="text-3xl font-bold mb-2">🔥 Extra 15% OFF on First Order</h2>
+            <p class="text-lg">on all product</p>
+          </div>
+        </div>
+
+        <div class="min-w-full relative">
+          <img 
+            src="https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-quartz-watch-promotion-season-atmospheric-black-banner-image_184423.jpg"
+            alt="T-Shirt Offer"
+            class="w-full h-[450px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h2 class="text-3xl font-bold mb-2">⌚Flat ₹500 OFF on Watches above ₹2999</h2>
+            <p class="text-lg">Complete your look — Luxury made affordable.</p>
+          </div>
+        </div>
+
+        <div class="min-w-full relative">
+          <img 
+            src="https://www.shutterstock.com/shutterstock/videos/3921560553/thumb/4.jpg?ip=x480"
+            alt="Festive Offer"
+            class="w-full h-[450px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h2 class="text-3xl font-bold mb-2">⚡ Buy 2, Get 1 FREE!</h2>
+            <p class="text-lg">🧥 Mix & match your favorites — tees, jeans, or accessories!</p>
+          </div>
+        </div>
+
+        <div class="min-w-full relative">
+          <img 
+            src="https://img.freepik.com/free-vector/limited-time-cashback-sale-offer-background-design_1017-57661.jpg?semt=ais_hybrid&w=740&q=80"
+            alt="Men's Wear Offer"
+            class="w-full h-[450px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h2 class="text-3xl font-bold mb-2">💳 Earn ₹200 Cashback on Orders Above ₹2000!</h2>
+            <p class="text-lg">💸 Shop smart — get instant savings on your next checkout!</p>
+          </div>
+        </div>
+        
+        <div class="min-w-full relative">
+          <img 
+            src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8b25saW5lJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000"
+            alt="Men's Wear Offer"
+            class="w-full h-[450px] object-cover rounded-2xl">
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
+            <h2 class="text-3xl font-bold mb-2">📦 Free Shipping on All Orders!</h2>
+            <p class="text-lg">🚀 Because your style should arrive without extra cost!</p>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const slider = document.getElementById("offerSlider");
+    const slides = slider.children;
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }, 4000);
+  </script>
+
+  
+<section class="bg-gray-900 py-12">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">Shop by Category</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      
+      <a href="T-shirt.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://d2fy0k1bcbbnwr.cloudfront.net/Designs_Inners_and_Outers/Tshirts/Men/tshirt_hs_men_pat_d48_o.jpg" alt="Shirts" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">T-Shirts</div>
+      </a>
+
+      <a href="shirt.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1bK0lr0nK0SJ51IoGjGF36whAkrLa4qFBdg&s" alt="T-Shirts" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Shirts</div>
+      </a>
+
+      <a href="jeans.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://www.shutterstock.com/image-photo/blue-denim-jeans-on-pile-600nw-1994170910.jpg" alt="Pants" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Jeans & Pants</div>
+      </a>
+
+      <a href="formal.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://www.shutterstock.com/image-photo/portrait-serious-handsome-man-blue-260nw-600200720.jpg" alt="Watches" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">formal Wear</div>
+      </a>
+      
+      <a href="jacket.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/072/550/746/small/black-zipup-hoodie-on-dark-background-minimalist-fashion-apparel-photo.jpg" alt="Watches" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Jackets & Hoodies</div>
+      </a>
+
+       <a href="shoes.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://thumbs.dreamstime.com/b/red-sneakers-dark-background-black-paint-splatters-pair-vibrant-athletic-shoes-laces-fitness-concept-copy-space-409098130.jpg" alt="Watches" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Shoes</div>
+      </a>
+
+       <a href="watches.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2n-LaVk4DKb2Rfmwcr0n1KWDPjZTe0JvI_A&s" alt="Watches" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Watches</div>
+      </a>
+
+       <a href="accessories.html" class="bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-blue-400 rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
+        <img src="https://thumbs.dreamstime.com/b/branding-mockup-men-s-accessories-black-color-flat-lay-black-stylish-male-accessories-kit-dark-background-top-view-157670818.jpg" alt="Watches" class="w-full h-48 object-cover">
+        <div class="p-4 text-center text-white font-semibold text-lg">Accessories</div>
+      </a>
+
+
+
+    </div>
+  </div>
+</section>
+
+  <footer class="bg-gray-900 text-gray-400 py-4 mt-10">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>© 2025 <span class="text-blue-400 font-semibold">MyShop</span>. All rights reserved.</p>
+      <p class="mt-1">Designed with ❤️ by <span class="text-blue-400">fashion beast Team</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>
